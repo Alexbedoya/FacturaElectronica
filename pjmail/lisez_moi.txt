@@ -1,0 +1,34 @@
+*******************************************************
+** Ce programme est distribué sous la licence GPL,   **
+** reportez-vous au fichier GPL.txt ou à             **
+** http://www.gnu.org/licenses/licenses.fr.html#GPL  **
+** pour en savoir plus.                              **
+**                                                   **
+**  Copyright 2000-2008 par Laurent Minguet          **
+*******************************************************
+******************
+* PJ-Mail  v1.2  *
+******************
+   (13/12/2007)
+
+Utilisation :
+------------
+	require_once('pjmail.class.php');
+	
+	$mail = new PJmail();
+	$mail->setAllFrom('mon_mail@domaine.com', 'Prenom Nom');	// mail en cas d'erreur d'envoie
+	$mail->addfrom('mon_mail@domaine.com', 'Prenom Nom');		// mail envoyeur
+	$mail->addrecipient('destinaraire1@domaine1.com');
+	$mail->addrecipient('destinaraire2@domaine2.com');
+	$mail->addsubject("Sujet du mail");	
+	$mail->text = "Texte du mail";
+	$mail->addbinattachement("mon_fichier.ext", "contenu du fichier");
+	$mail->sendmail(); 			
+
+Informations :
+-------------
+ Programmation en PHP4
+
+ *Programmeur :	Spipu
+		email  : webmaster@spipu.net
+		site   : http://prgm.spipu.net/

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fe:Invoice>
+	<ext:UBLExtensions>
+		<ext:ExtensionContent>
+			<sts:DianExtensions>
+				<sts:InvoiceControl>
+					<sts:InvoiceAuthorization>
+						udt:NumericType || xsd:decimal
+					</sts:InvoiceAuthorization>
+					<sts:AuthorizationPeriod>
+						<cbc:StartDate>2015-12-01</cbc:StartDate>
+						<cbc:EndDate>2017-12-01</cbc:EndDate>
+					</sts:AuthorizationPeriod> 
+					<sts:AuthorizedInvoices>			
+						<sts:Prefix>ABC</sts:Prefix>
+						<sts:From>xsd:int<sts:From> [1]
+						<sts:To>Xsd:int</sts:To>
+					</sts:AuthorizedInvoices>
+				</sts:InvoiceControl>
+				<sts:InvoiceSource>
+					<cbc:IdentificationCode>
+						CO
+					</cbc:IdentificationCode>
+				</sts:InvoiceSource>
+				<sts:SoftwareProvider>
+					<sts:ProviderID>udt:IdentifierType || xsd:normalizedString<sts:ProviderID>
+					<sts:SoftwareID>udt:IdentifierType || xsd:normalizedString</sts:SoftwareID>
+					<sts:SoftwareSecurityCode>udt:IdentifierType || xsd:normalizedString</sts:SoftwareSecurityCode>
+				</sts:SoftwareProvider>
+			<sts:DianExtensions>
+			<ds:Signature>
+				<ds:SignedInfo>
+					<ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+					<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha-1"/>
+					<ds:Reference>
+						<ds:Transforms>…</ds:Transforms>
+						<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha-1"/>
+						<ds:DigestValue>…</ds:DigestValue>
+					</ds:Reference>
+					<ds:Reference>
+						<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha-1"/>
+						<ds:DigestValue></ds:DigestValue>
+					</ds:Reference>
+					<ds:Reference>
+
+					</ds:Reference>
+				</ds:SignedInfo>
+				<ds:SignatureValue>ds:SignatureValueType || base64Binary</ds:SignatureValue>
+				<ds:KeyInfo>
+					<ds:X509Data></ds:X509Data>
+				</ds:KeyInfo>
+				<ds:Object>
+					<xades:QualifyingProperties>
+						<xades:SignedProperties>
+							<xades:SigningTime>xsd:dateTime</xades:SigningTime>
+							<xades:SigningCertificate>
+								<xades:Cert>…</xades:Cert>
+								<xades:Cert>…</xades:Cert>
+								<xades:Cert>…</xades:Cert>
+							</xades:SigningCertificate>
+							<xades:SignaturePolicyIdentifier>
+								<xades:SignaturePolicyId>
+									<xades:SigPolicyId>
+										<xades:Identifier>udt:IdentifierType || WebsiteURIType</xades:Identifier>
+									</xades:SigPolicyId>
+									<xades:SigPolicyHash>
+										<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha-1"/>
+										<ds:DigestValue>…</ds:DigestValue>
+									</xades:SigPolicyHash>
+								</xades:SignaturePolicyId>
+							</xades:SignaturePolicyIdentifier>
+							<xades:SignerRole>
+								<xades:ClaimedRoles>
+									<xades:ClaimedRole>supplier</xades:ClaimedRole>
+								</xades:ClaimedRoles>
+							</xades:SignerRole>
+						</xades:SignedProperties>
+					</xades:QualifyingProperties>
+				</ds:Object>
+				<ds:X509Certificate> ds:X509DataType || base64Binary </ds:X509Certificate>
+			</ds:Signature>
+		</ext:ExtensionContent>
+	</ext:UBLExtensions>
+	<cbc:UBLVersionID> UBL 2.0 </cbc:UBLVersionID>
+	<cbc:CustomizationID schemeName="nombre archivo xsd" schemeURI="http://www.dian.gov.co/contratos/facturaelectronica/v1/anexo_v1_0.html#xsdFile">DIAN_UBL_v1_0_foc.xsd
+	</cbc:CustomizationID>
+	<cbc:ProfileID>DIAN 1.0</cbc:ProfileID>
+	<cbc:ID>12345</cbc:ID>
+	<cbc:UUID schemeAgencyID="195"
+		schemeAgencyName="CO, DIAN (Direccion de Impuestos y Aduanas Nacionales)"
+		schemeName="CUFE"
+		schemeURI="http://www.dian.gov.co/contratos/facturaelectronica/v1/anexo_v1_0.pdf#CUFE">
+		a1beaaef31a0c05e97b0c4f6fbc1902d66a93245
+	</cbc:UUID>
+	<cbc:IssueDate>2015-09-03</cbc:IssueDate>
+	<cbc:IssueTime>14:39:00</cbc:IssueTime>
+	<cbc:InvoiceTypeCode>1</cbc:InvoiceTypeCode>
+	<cbc:Note>Set de pruebas</cbc:Note>
+	<cbc:DocumentCurrencyCode>COP</cbc:DocumentCurrencyCode>
+	<fe:AccountingSupplierParty>
+		<cbc:AdditionalAccountID>10001</cbc:AdditionalAccountID>
+		<fe:Party>
+			<cac:PartyIdentification>
+				<cbc:ID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Direccion
+					de Impuestos y Aduanas Nacionales)" schemeID="31">700085380
+				</cbc:ID>
+			</cac:PartyIdentification>
+			<cac:PartyName>
+				<cbc:Name>PJ - 700085380 - Adquiriente FE</cbc:Name>
+			</cac:PartyName>
+			<fe:PhysicalLocation>
+				<fe:adress>
+					<cbc:Department> LS state </cbc:Department> [0..1]
+					<cbc:CitySubdivisionName> Centro </cbc:CitySubdivisionName> [0..1]
+					<cbc:CityName> Medellín </cbc:CityName> [0..1]
+					<cac:AddressLine>
+						<cbc:Line>LESOTO mall Av. 1 street</cbc:Line>
+					</cac:AddressLine> [0..*]
+					<cac:Country>
+						<cbc:IdentificationCode> LS </cbc:IdentificationCode>
+					</cac:Country>
+				</fe:adress>
+			</fe:PhysicalLocation>
+			<fe:PartyTaxScheme>
+				<cbc:TaxLevelCode>0</cbc:TaxLevelCode>
+			</fe:PartyTaxScheme>
+			<fe:PartyLegalEntity> 
+				<cbc:RegistrationName>PJ - 700085375</cbc:RegistrationName>
+			</fe:PartyLegalEntity>
+		</fe:Party>
+	</fe:AccountingSupplierParty>
+	<fe:AccountingCustomerParty> 
+		<cbc:AdditionalAccountID>1</cbc:AdditionalAccountID>
+		<fe:Party>
+			<cac:PartyIdentification>
+				<cbc:ID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Direccion
+					de Impuestos y Aduanas Nacionales)" schemeID="31">700085375
+				</cbc:ID>
+			</cac:PartyIdentification>
+			<cac:PartyName>
+				<cbc:Name>PJ - 700085375 - Adquiriente FE</cbc:Name>
+			</cac:PartyName>
+			<fe:PhysicalLocation>
+				<fe:adress>
+					<cbc:Department> LS state </cbc:Department>
+					<cbc:CitySubdivisionName> …… </cbc:CitySubdivisionName>
+					<cbc:CityName> Medellín </cbc:CityName>
+					<cac:AddressLine> 
+						<cbc:Line>LESOTO mall Av. 1 street</cbc:Line>
+					</cac:AddressLine>
+					<cac:Country> 
+						<cbc:IdentificationCode> LS </cbc:IdentificationCode>
+					</cac:Country>
+				</fe:adress>
+			</fe:PhysicalLocation>
+			<fe:PartyTaxScheme> 
+				<cbc:TaxLevelCode> 0 </cbc:TaxLevelCode>
+			</fe:PartyTaxScheme>
+			<fe:PartyLegalEntity>
+				<cbc:RegistrationName> PJ - 700085375 </cbc:RegistrationName>
+			</fe:PartyLegalEntity>
+		</fe:Party>
+	</fe:AccountingCustomerParty>
+	<fe:TaxTotal> 
+		<cbc:TaxAmount> 0 </cbc:TaxAmount>
+		<cbc:TaxEvidenceIndicator> false </cbc:TaxEvidenceIndicator>
+		<fe:TaxSubtotal>
+			<cbc:TaxableAmount> 1109376 </cbc:TaxableAmount>
+			<cbc:TaxAmount> 0 </cbc:TaxAmount>
+			<cbc:Percent> 17.5 </cbc:Percent>
+			<cac:TaxCategory>
+				<cac:TaxScheme>
+					<cbc:ID> 05 </cbc:ID>
+				</cac:TaxScheme>
+			</cac:TaxCategory>
+		</fe:TaxSubtotal>
+	</fe:TaxTotal>
+	<fe:LegalMonetaryTotal>
+		<cbc:LineExtensionAmount>
+			
+		</cbc:LineExtensionAmount>
+		<cbc:TaxExclusiveAmount> 0 </cbc:TaxExclusiveAmount>
+		<cbc:PayableAmount> 1109376 </cbc:PayableAmount>
+	</fe:LegalMonetaryTotal>
+	<tns:InvoiceLine>
+		<cbc:ID> 1 </cbc:ID>
+		<cbc:InvoicedQuantity> 321 </cbc:InvoicedQuantity>
+		<cbc:LineExtensionAmount> 1109376 </cbc:LineExtensionAmount>
+		<fe:Item> 
+			<cbc:Description> Línea-1 25985375 fom0001_001_fc7ba_R700085375-85375-i9n </cbc:Description>
+		</fe:Item>
+		<fe:Price> 
+			<cbc:PriceAmount> 3456 </cbc:PriceAmount>
+		</fe:Price>
+	</fe:InvoiceLine>
+</fe:Invoice>

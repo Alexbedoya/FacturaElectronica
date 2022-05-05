@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></head><body><div id="class"><h1>Classe mail</h1><dl><dt>Version 1.2</dt><dt>Auteur: Tetsuo</dt><dt>Derniere modification: 02-06-2004</dt></dl><h2>La classe simplemail fourni des fonctions permettant de construire puis d'envoyer des mail texte, html avec ou sans pièces jointes.
+        </h2><p>
+          La nouvelle mouture permet l'envoi grace aux fonctions intégrées a PHP
+		  ainsi que directement grace au sockets. Ainsi que l'envoi a des destinataires
+		   multiples.
+        </p><ul xmlns="">
+<li class="item">
+<h3>Nouvelle Instance</h3>
+<Func_name>
+            simplemail()
+          </Func_name><p><Desc>
+            constructeur des instances de mail. Il initialise les variable de
+            la classe.
+          </Desc></p>
+<ul class="Params"><li name="gctime"> : <Params name="gctime">
+            fixe la durée de vie maximum en seconde d'un fichier dans le repertoire de cache.
+            Tout fichier plus agé est supprimé.
+          </Params>
+</li></ul>
+<ul class="code"><li><Code>
+            $mail = new simple
+          </Code></li></ul>
+</li>
+<li class="item">
+<h3>Ajouter un destinataire.</h3>
+<Func_name>
+            addrecipient( string 'adressmail' [ , string 'nom' ] )
+          </Func_name><p><Desc>
+            Ajoute un destinataire ( TO: ). Renvoi TRUE si l'adresse est valable.
+            FALSE sinon.
+          </Desc></p>
+<ul class="Params">
+<li name="adressmail"> : <Params name="adressmail">
+            l'adresse mail.
+          </Params>
+</li>
+<li name="nom"> : <Params name="nom">
+            le nom du destinataire ( facultatif ).
+          </Params>
+</li>
+</ul>
+<ul class="code"><li><Code>
+            $mail-&gt;addrecipient( string 'adressmail' [ , string 'nom' ] )
+          </Code></li></ul>
+</li>
+<li class="item">
+<h3>Spécifier l'expediteur</h3>
+<Func_name>
+            addfrom( string 'adressmail' [ , string 'nom' ] )
+          </Func_name><p><Desc>
+            Spécifie l'expediteur ( From: ) si l'adresse est valide.
+          </Desc></p>
+<ul class="Params">
+<li name="adressmail"> : <Params name="adressmail">
+            l'adresse mail.
+          </Params>
+</li>
+<li name="nom"> : <Params name="nom">
+            le nom du destinataire ( facultatif ).
+          </Params>
+</li>
+</ul>
+<ul class="code"><li><Code>
+            $mail-&gt;addfrom('adressmail' [ , 'nom' ] )
+          </Code></li></ul>
+</li>
+<li class="item">
+<h3>Ajouter un destinataire copie conforme.</h3>
+<Func_name>
+            addcc( string 'adressmail' [ , string 'nom' ] )
+          </Func_name><p><Desc>
+            Ajouter un destiantaire copie conforme ( Cc: ) si l'adresse est valide.
+          </Desc></p>
+<ul class="Params"><li name="adressmail"> : <Params name="adressmail">
+            l'adresse mail.
+          </Params>
+</li></ul>
+<ul class="code"><li><Code>
+            $mail-&gt;addcc('adressmail' [ , 'nom' ] )
+          </Code></li></ul>
+</li>
+<li class="item">
+<h3>Ajouter un destinataire copie conforme cachée.</h3>
+<Func_name>
+            addbcc( string 'adressmail' [ , string 'nom' ] )
+          </Func_name><p><Desc>
+            Ajouter un destiantaire copie conforme ( Cc: ) si l'adresse est valide.
+          </Desc></p>
+<ul class="Params">
+<li name="adressmail"> : <Params name="adressmail">
+            l'adresse mail.
+          </Params>
+</li>
+<li name="nom"> : <Params name="nom">
+            le nom du destinataire ( facultatif ).
+          </Params>
+</li>
+</ul>
+<ul class="code"><li><Code>
+            $mail-&gt;addbcc('adressmail' [ , 'nom' ] )
+          </Code></li></ul>
+</li>
+<li class="item">
+<h3>Specifier le sujet.</h3>
+<Func_name>
+            addsubject( string 'subject')
+          </Func_name><p><Desc>
+             Spécifier le sujet du mail ( Subject: ).
+          </Desc></p>
+<ul class="Params"><li name="subject"> : <Params name="subject">
+            le sujet du mail.
+          </Params>
+</li></ul>
+<ul class="code"><li><Code>
+            $mail-&gt;addsubject('subject')
+          </Code></li></ul>
+</li>
+<li class="item">
+<h3>Specifier l'adresse de reponse.</h3>
+<Func_name>
+            addreplyto( string 'adressmail')
+          </Func_name><p><Desc>
+            Spécifier l'adresse de reponse. ( Reply-To: ) si l'adresse est valide.
+          </Desc></p>
+<ul class="Params"><li name="adressmail"> : <Params name="adressmail">
+            l'adresse mail.
+          </Params>
+</li></ul>
+<ul class="code"><li><Code>
+            $mail-&gt;addrreplyto('adressmail')
+          </Code></li></ul>
+</li>
+<li class="item">
+<h3>Ajouter un attachement.</h3>
+<Func_name>
+            addattachement( string 'filename')
+          </Func_name><p><Desc>
+            Ajouter un attachement ( fichier joint) dans le mail. Cette fonction
+            ne permet pas d'afficher l'attachement ds le contenu html.
+          </Desc></p>
+<ul class="Params"><li name="filename"> : <Params name="filename">
+            le chemin jusqu'au fichier a inclure.
+          </Params>
+</li></ul>
+<ul class="code"><li><Code>
+            $mail-&gt;addattachement('filename')
+          </Code></li></ul>
+</li>
+<li class="item">
+<h3>Ajouter un attachement HTML.</h3>
+<Func_name>
+            addhtmlattachement( string 'filename', string 'cid', string 'content-type')
+          </Func_name><p><Desc>
+            
+              Ajoute le fichier en piece jointe en vue de l'afficher dans le
+                mail au format html ( comme des image par exemple ). cid ( content-id
+                ) represente le nom auquel vous ferez reference dans votre contenu
+                html (ex: &lt;img src="cid:monimage1"&gt;) et content-type precise le type de document ( ex: image/png
+              ).
+            
+          </Desc></p>
+<ul class="Params">
+<li name="filename"> : <Params name="filename">
+            le chemin jusqu'au fichier a inclure.
+          </Params>
+</li>
+<li name="cid"> : <Params name="cid">
+            le content id, permet de faire reference a votre fichier attaché dans les tags html.
+          </Params>
+</li>
+<li name="content-type"> : <Params name="content-type">
+            contient le type MIME du fichier attaché.
+          </Params>
+</li>
+</ul>
+<ul class="code"><li><Code>
+            $mail-&gt;addattachement('filename','cid','content-type')
+          </Code></li></ul>
+</li>
+<li class="item">
+<h3>Spécifier le corp plain text.</h3>
+<Func_name>
+            text = string 'plain text ...'
+          </Func_name><p><Desc>
+            Spécifier le corp plain text du mail, lisible par TOUS les client mail.
+          </Desc></p>
+<ul class="Params"><li name="plaintext"> : <Params name="plaintext">
+            le text du corp du mail en ASCII.
+          </Params>
+</li></ul>
+<ul class="code"><li><Code>
+            $mail-&gt;text = string 'plaintext'
+          </Code></li></ul>
+</li>
+<li class="item">
+<h3>Spécifier le corp HTML.</h3>
+<Func_name>
+            html = string 'contenu html...'
+          </Func_name><p><Desc>
+            Spécifier le contenu HTML s'il y a lieu.
+          </Desc></p>
+<ul class="Params"><li name="code html"> : <Params name="code html">
+            le corps du mail en HTML.
+          </Params>
+</li></ul>
+<ul class="code"><li><Code>
+            $mail-&gt;html = 'code html'
+          </Code></li></ul>
+</li>
+<li class="item">
+<h3>Spécifier le mode d'envoi.</h3>
+<Func_name>
+            set_mode = string 'mode'
+          </Func_name><p><Desc>
+            Spécifier le mode d'envoi du mail, l'ajout de l'envoie par socket a
+            surtout pour but l'accroissement des performance lors de l'envoi
+            en nombre.
+          </Desc></p>
+<ul class="Params"><li name="mode"> : <Params name="mode">
+            'php' pour utiliser la fonction mail de PHP, ou 'socket' pour utiliser
+            directment les sockets ( plus rapide ).
+          </Params>
+</li></ul>
+<ul class="code"><li><Code>
+            $mail-&gt;set_mode = 'socket';
+          </Code></li></ul>
+</li>
+<li class="item">
+<h3>Envoyer le mail.</h3>
+<Func_name>
+            sendmail()
+          </Func_name><p><Desc>
+            Envoie le mail composé.
+          </Desc></p>
+<ul class="Params"></ul>
+<ul class="code"><li><Code>
+            $mail-&gt;sendmail()
+          </Code></li></ul>
+</li>
+<li class="item">
+<h3>Error log.</h3>
+<Func_name>
+            error_log([ string 'message'])
+          </Func_name><p><Desc>
+            Methode qui ajoute un message au log des erreurs quand l'argument
+			message est passé. La methode renvoi tout les logs d'erreur si elle
+			est evoqué sans argument.
+		  </Desc></p>
+<ul class="Params"></ul>
+<ul class="code"><li><Code>
+            $mail-&gt;error_log('msg')
+          </Code></li></ul>
+</li>
+</ul></div></body></html>
